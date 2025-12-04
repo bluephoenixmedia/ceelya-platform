@@ -1,0 +1,13 @@
+@import 'lumo-css-framework/all-classes.css';
+
+html {
+    /* Forest Palette */
+    --ceelya-primary: #2d5a27;       /* Deep Forest Green */
+    --ceelya-primary-contrast: #ffffff;
+    --ceelya-bg-base: #f4f7f2;       /* Light Moss Mist */
+
+    /* Lumo Overrides (Vaadin defaults) */
+    --lumo-primary-color: var(--ceelya-primary);
+    --lumo-primary-text-color: var(--ceelya-primary);
+    --lumo-base-color: var(--ceelya-bg-base);
+}

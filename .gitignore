@@ -1,0 +1,26 @@
+# --- Maven ---
+target/
+*.log
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# --- OS System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Vaadin & Frontend (Auto-Generated) ---
+# We ignore these because Vaadin creates them automatically from the Java code.
+# Keeping them out of Git keeps the repository clean and "Pure Java".
+node_modules/
+package.json
+package-lock.json
+pnpm-lock.yaml
+vite.generated.ts
+tsconfig.json
+types.d.ts
+
+# Note: We KEEP 'frontend/' (themes) and 'vite.config.ts' (custom build settings)
