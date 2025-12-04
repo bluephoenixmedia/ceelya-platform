@@ -3,6 +3,7 @@ package org.bpm.ceelya.views;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Paragraph;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -34,7 +35,15 @@ public class MainView extends VerticalLayout {
 
         add(createOrgButton);
 
+        Button ecosystemBtn = new Button("Manage Ecosystem", VaadinIcon.CLUSTER.create());
+        ecosystemBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        ecosystemBtn.addClickListener(e -> getUI().ifPresent(ui -> ui.navigate(EcosystemView.class)));
+
+        add(ecosystemBtn);
+
         // 4. Add components to the view
-        add(title, subtitle, button, createOrgButton);
+        add(title, subtitle, button);
+
+
     }
 }
