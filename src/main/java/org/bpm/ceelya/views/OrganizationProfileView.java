@@ -16,8 +16,11 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.bpm.ceelya.data.service.OrganizationService;
 
+import jakarta.annotation.security.PermitAll;
+
 @PageTitle("Create Organization | Ceelya")
-@Route("create-organization")
+@Route(value = "create-organization", layout = MainLayout.class)
+@PermitAll
 public class OrganizationProfileView extends Composite<VerticalLayout> {
 
     private final OrganizationService organizationService;

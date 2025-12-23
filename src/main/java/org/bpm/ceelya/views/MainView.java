@@ -10,7 +10,10 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.ButtonVariant;
 
-@Route("") // Maps to http://localhost:8080/
+import jakarta.annotation.security.PermitAll;
+
+@PermitAll
+@Route(value = "", layout = MainLayout.class) // Maps to http://localhost:8080/
 public class MainView extends VerticalLayout {
 
     public MainView() {
@@ -43,7 +46,6 @@ public class MainView extends VerticalLayout {
 
         // 4. Add components to the view
         add(title, subtitle, button);
-
 
     }
 }

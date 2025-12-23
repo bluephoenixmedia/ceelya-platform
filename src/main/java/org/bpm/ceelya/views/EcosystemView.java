@@ -25,8 +25,11 @@ import org.bpm.ceelya.data.service.OrganizationService;
 
 import java.util.List;
 
+import jakarta.annotation.security.PermitAll;
+
 @PageTitle("Ecosystem | Ceelya")
-@Route("ecosystem")
+@Route(value = "ecosystem", layout = MainLayout.class)
+@PermitAll
 public class EcosystemView extends VerticalLayout {
 
     private final EcosystemService ecosystemService;
@@ -176,7 +179,8 @@ public class EcosystemView extends VerticalLayout {
             Notification.show("Please select an organization first");
             return;
         }
-        if (deptNameField.isEmpty()) return;
+        if (deptNameField.isEmpty())
+            return;
 
         ecosystemService.createDepartment(currentOrg.getId(), deptNameField.getValue(), "");
         deptNameField.clear();
@@ -189,7 +193,8 @@ public class EcosystemView extends VerticalLayout {
             Notification.show("Please select a department first");
             return;
         }
-        if (teamNameField.isEmpty()) return;
+        if (teamNameField.isEmpty())
+            return;
 
         ecosystemService.createTeam(currentDept.getId(), teamNameField.getValue(), "");
         teamNameField.clear();

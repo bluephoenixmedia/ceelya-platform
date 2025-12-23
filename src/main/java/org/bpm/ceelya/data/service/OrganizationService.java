@@ -13,9 +13,12 @@ import java.util.UUID;
 public class OrganizationService {
 
     private final OrganizationRepository organizationRepository;
+    private final org.bpm.ceelya.security.AuthenticatedUser authenticatedUser;
 
-    public OrganizationService(OrganizationRepository organizationRepository) {
+    public OrganizationService(OrganizationRepository organizationRepository,
+            org.bpm.ceelya.security.AuthenticatedUser authenticatedUser) {
         this.organizationRepository = organizationRepository;
+        this.authenticatedUser = authenticatedUser;
     }
 
     public List<Organization> findAll() {
@@ -28,11 +31,13 @@ public class OrganizationService {
 
     @Transactional
     public Organization createOrganization(String name, String description, String ownerId) {
+        // Overriding ownerId with authenticated user if present
+        String actualOwner = authenticatedUser.get().map(u -> u.getId().toString()).orElse(ownerId);
+
         Organization org = new Organization();
         org.setName(name);
         org.setDescription(description);
-        // In the future, this will come from the authenticated User session
-        org.setOwnerId(ownerId);
+        org.setOwnerId(actualOwner);
         return organizationRepository.save(org);
     }
 

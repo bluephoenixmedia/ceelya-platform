@@ -13,4 +13,20 @@ public class CeelyaApplication implements AppShellConfigurator {
         SpringApplication.run(CeelyaApplication.class, args);
     }
 
+    @org.springframework.context.annotation.Bean
+    public org.springframework.boot.CommandLineRunner loadData(
+            org.bpm.ceelya.data.repository.EmployeeRepository repository,
+            org.springframework.security.crypto.password.PasswordEncoder passwordEncoder) {
+        return args -> {
+            if (repository.count() == 0) {
+                org.bpm.ceelya.data.entity.Employee admin = new org.bpm.ceelya.data.entity.Employee();
+                admin.setUsername("admin");
+                admin.setHashedPassword(passwordEncoder.encode("password"));
+                admin.setFirstName("Admin");
+                admin.setLastName("User");
+                admin.setRole(org.bpm.ceelya.data.entity.Role.ADMIN);
+                repository.save(admin);
+            }
+        };
+    }
 }

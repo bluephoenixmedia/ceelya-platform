@@ -38,9 +38,9 @@ We utilize a **Service-Oriented Monolith** structure designed for eventual micro
 
 ### Phase 2: The Ecosystem (Next Session)
 *Objective: Model the internal hierarchy of the organism.*
-* [ ] **Departments:** Create `Department` entity (One-to-Many with Organization).
-* [ ] **Teams:** Create `Team` entity (One-to-Many with Department).
-* [ ] **Hierarchy View:** Build a TreeGrid UI in Vaadin to visualize Org -> Dept -> Team structure.
+* [x] **Departments:** Create `Department` entity (One-to-Many with Organization).
+* [x] **Teams:** Create `Team` entity (One-to-Many with Department).
+* [x] **Hierarchy View:** Build a TreeGrid UI in Vaadin to visualize Org -> Dept -> Team structure.
 
 ### Phase 3: The Genome (Human & Role)
 *Objective: Identity management and Access Control.*
